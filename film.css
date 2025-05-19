@@ -1,0 +1,381 @@
+/* --------- IMPOSTAZIONI GENERALI DELLA PAGINA --------- */
+body {
+    overflow-x: hidden;
+    /* Impedisce lo scorrimento orizzontale */
+    height: 100vh;
+    /* Imposta l'altezza del body al 100% dell'altezza viewport */
+    background-color: rgba(0, 0, 0, 0.89);
+    /* Sfondo nero con trasparenza */
+    transition: opacity 0.5s ease-out;
+    /* Transizione morbida dell'opacità */
+    margin: 0;
+    /* Rimuove margini di default */
+    padding: 0;
+    /* Rimuove padding di default */
+}
+
+/* --------- TITOLO PRINCIPALE --------- */
+.titlePlay {
+    color: #B208E6;
+    /* Colore viola */
+    font-family: 'Poppins', sans-serif;
+    /* Font moderno */
+    cursor: default;
+    /* Disabilita il cursore cliccabile */
+    text-align: right;
+    /* Allineato a destra */
+    margin: 15px 20px 0 0;
+    /* Margine: alto, destra, basso, sinistra */
+    font-size: 40px;
+    /* Grandezza del titolo */
+}
+
+/* --------- CONTENITORE IMMAGINI (colonna) --------- */
+.contImag {
+    display: flex;
+    /* Layout flessibile */
+    align-items: center;
+    /* Allineamento verticale centrato */
+    flex-direction: column;
+    /* Impila verticalmente */
+    gap: 2px;
+    /* Spazio verticale tra gli elementi */
+    margin-top: 20px;
+    /* Spazio sopra il blocco */
+}
+
+.contImag img:hover {
+    transform: scale(1.05);
+    /* Ingrandisce leggermente al passaggio del mouse */
+}
+
+/* --------- CONTENITORE IMMAGINI GIOCO --------- */
+#contenitoreImmagini {
+    display: flex;
+    /* Disposizione flessibile */
+    justify-content: center;
+    /* Allinea le immagini orizzontalmente al centro */
+    align-items: center;
+    /* Allineamento verticale */
+    gap: 55px;
+    /* Spazio tra immagini */
+    height: 600px;
+    /* Altezza fissa */
+}
+
+/* --------- CONTENITORE IMMAGINI VINCENTE (inizialmente nascosto) --------- */
+#contenitoreVincente {
+    display: none;
+    /* Non visibile inizialmente */
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 500px;
+}
+
+/* --------- IMMAGINI DEL GIOCO --------- */
+.randomImage {
+    width: 340px;
+    height: 500px;
+    border-radius: 15px 15px 0 0;
+    /* Angoli superiori arrotondati */
+    object-fit: cover;
+    /* L'immagine si adatta riempiendo */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Ombra leggera */
+    transition: transform 0.3s ease;
+    /* Transizione smooth */
+    cursor: pointer;
+}
+
+/* --------- TESTO "VS" CENTRALE --------- */
+.vsText {
+    font-size: 90px;
+    font-weight: bold;
+    cursor: default;
+    color: #B208E6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --------- TITOLO DEL VINCITORE --------- */
+.vincitore {
+    font-weight: bold;
+    color: #B208E6;
+    cursor: default;
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --------- IMMAGINE DEL VINCITORE --------- */
+.immagineVincente {
+    width: 400px;
+    height: 600px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --------- CONTATORE ROUND (posizione assoluta in alto) --------- */
+.roundCounter {
+    color: #B208E6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    cursor: default;
+}
+
+/* --------- LINK IN ALTO A SINISTRA (home/selezione) --------- */
+.tornaLinks {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.tornaHome,
+.tornaSelezione {
+    font-family: 'Poppins', sans-serif;
+    color: #B208E6;
+    font-size: 20px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tornaHome:hover,
+.tornaSelezione:hover {
+    background: rgba(178, 8, 230, 0.2);
+    transform: scale(1.05);
+}
+
+/* --------- SCHEDA CHE CONTIENE L'IMMAGINE --------- */
+.scheda {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(44, 38, 38);
+    border-radius: 15px;
+    height: 500px;
+    width: 340px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.scheda:hover {
+    transform: scale(1.05);
+}
+
+/* --------- DESCRIZIONE IN FONDO ALLA SCHEDA --------- */
+p {
+    margin: 0;
+    padding: 5px 20px 20px 20px;
+    font-size: 23px;
+    color: #B208E6;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: rgb(44, 38, 38);
+    border-radius: 0 0 15px 15px;
+}
+
+
+
+/* --------- MEDIA QUERIES (RESPONSIVE DESIGN) --------- */
+@media (max-width: 1208px) {
+    .titlePlay {
+        font-size: 30px;
+    }
+
+    .scheda,
+    .randomImage {
+        height: 380px;
+        width: 260px;
+        aspect-ratio: 2 / 3;
+
+    }
+
+    .vsText {
+        font-size: 50px;
+        margin: 20px 20px;
+        writing-mode: horizontal-tb;
+    }
+
+    .roundCounter {
+        font-size: 40px;
+    }
+
+    .tornaLinks {
+        top: 10px;
+        left: 10px;
+        flex-direction: column;
+    }
+
+    .immagineVincente {
+        height: 380px;
+        width: 260px;
+    }
+
+    .tornaHome,
+    .tornaSelezione {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
+
+/* Mobile fino a 768px */
+@media (max-width: 768px) {
+    .titlePlay {
+        font-size: 30px;
+    }
+
+    #contenitoreImmagini {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+
+    }
+
+    .scheda,
+    .randomImage {
+        height: 380px;
+        width: 260px;
+        aspect-ratio: 2 / 3;
+
+    }
+
+    .vsText {
+        font-size: 50px;
+        margin-top: 40px;
+        writing-mode: horizontal-tb;
+    }
+
+    .roundCounter {
+        font-size: 30px;
+        top: 10px;
+    }
+
+    .tornaLinks {
+        top: 10px;
+        left: 10px;
+        flex-direction: column;
+    }
+
+    .tornaHome,
+    .tornaSelezione {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .vincitore {
+        font-size: 30px;
+    }
+
+    .immagineVincente {
+        height: 380px;
+        width: 260px;
+        aspect-ratio: 2 / 3;
+    }
+}
+
+@media (max-width: 694px) {
+    .titlePlay {
+        font-size: 20px;
+    }
+
+    .roundCounter {
+        font-size: 20px;
+        top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .scheda,
+    .randomImage {
+        height: 320px;
+        width: 180px;
+        aspect-ratio: 2 / 3;
+
+    }
+
+    .tornaLinks {
+        top: 10px;
+        left: 10px;
+        flex-direction: column;
+    }
+
+    .tornaHome,
+    .tornaSelezione {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .vincitore {
+        font-size: 20px;
+    }
+
+    .immagineVincente {
+        height: 320px;
+        width: 180px;
+        aspect-ratio: 2 / 3;
+
+    }
+}
+
+
+/* Smartphone piccoli (es. iPhone SE) */
+@media (max-width: 480px) {
+    .titlePlay {
+        font-size: 15px;
+    }
+
+    .roundCounter {
+        font-size: 20px;
+        top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .scheda,
+    .randomImage {
+        height: 320px;
+        width: 180px;
+        aspect-ratio: 2 / 3;
+
+    }
+
+    .tornaLinks {
+        top: 10px;
+        left: 10px;
+        flex-direction: column;
+    }
+
+    .tornaHome,
+    .tornaSelezione {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .vincitore {
+        font-size: 15px;
+    }
+
+    .immagineVincente {
+        height: 320px;
+        width: 180px;
+        aspect-ratio: 2 / 3;
+    }
+}
